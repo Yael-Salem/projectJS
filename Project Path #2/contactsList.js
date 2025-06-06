@@ -1,3 +1,8 @@
+'use strict';
+/*שמות מגישים:
+ליאון מברין
+יאיל סאלם*/
+
 // Contacts array
 const contacts = 
 [
