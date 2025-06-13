@@ -9,19 +9,22 @@ const contacts =
     {
         name: 'Bertie Yates',
         phoneNum: '111111',
-        email: 'B.yates@gmail.com'
+        email: 'B.yates@gmail.com',
+        image: './images/contact1.jpg'
     },
 
     {
         name: 'Lindsey Joyner',
         phoneNum: '222222',
-        email: 'Linn@hotmail.com'
+        email: 'Linn@hotmail.com',
+        image: './images/contact2.jpg'
     },
 
     {
         name: 'Yusef Grant',
         phoneNum: '3333333',
-        email: 'GrYusef@gmail.com'
+        email: 'GrYusef@gmail.com',
+        image: './images/contact3.png'
     }
 ];
 
@@ -65,6 +68,12 @@ contacts.forEach(elem =>{
     const contactName = document.createElement('h2');
     contactName.textContent = elem.name;
     contactDiv.prepend(contactName);
+
+    // Contact photo
+    const contactPhoto = document.createElement('img');
+    contactPhoto.setAttribute('src' , elem.image);
+    contactPhoto.className = 'contactPhoto'
+    contactDiv.prepend(contactPhoto);
 
     li.prepend(contactDiv);
 

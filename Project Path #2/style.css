@@ -28,8 +28,16 @@ h1{
 h2{
     font-family: Open Sans;
     font-weight: bold;
-    margin: 1% 1%;
-    padding: none;
+    margin: 5% 5%;
+   
+}
+
+h3{
+    font-family: Open Sans;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 5% 5%;
+    text-align: center;
 }
 /* #endregion */
 
@@ -41,9 +49,9 @@ ul{
 }
 
 .contactPhoto{
-    height: 150px;
+    height: 130px;
     width: auto ;
-
+    margin-top: 2%;
 }
 
 .contact{
@@ -110,9 +118,9 @@ body{
 .wrapper{
     background-color: white;
     width: 90%;
-    height: auto;
+    height: 90%;
     margin: auto;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
 }
 /* #endregion */
 
@@ -123,6 +131,35 @@ footer{
     color: rgb(24, 24, 233);
      text-align: center;
      font-family: Open Sans;
+}
+/* #endregion */
+
+/* #region Links */
+a:link,
+a:visited{
+    font-size: 1.5em;
+    margin-right: 2%;
+    text-decoration: none;
+    color: rgb(24, 24, 233);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* #endregion */
+
+/* #region Contact Us */
+.contactInfo{
+    margin: 2% 8% 5% 22%;
+    text-align: center;
+}
+/* #endregion */
+
+/* #region Flex Containers */
+.flexContainer{
+    display: flex;
+    flex-direction: row;
 }
 /* #endregion */
 
@@ -174,5 +211,10 @@ footer{
 /* #region Paragraphs */
 p{
     font-family: Open Sans;
+}
+
+#aboutUsText{
+    margin-left: 1%;
+    padding-bottom: 5%;
 }
 /* #endregion */
