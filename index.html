@@ -19,49 +19,19 @@
     <main>
         <div class="wrapper">
         <button class="editList"><img src="./images/addContact.png" alt="Add" title="Add contact"></button>
-        <button class="editList"><img src="./images/removeIcon.png" alt="Remove All" title="Delete all contacts"></button>
+        <button class="editList" id="deleteAll"><img src="./images/removeIcon.png" alt="Remove All" title="Delete all contacts"></button>
 
-        <section id="contactList">
-            <ul>
-                <li>
-                    <div class="contact">
-                    <img class="contactPhoto" src="./images/contact1.jpg" alt="Photo of the current contact">
-                    <h2>Bertie Yates</h2>
-                    <button class="infoButton"><img src="./images/infoIcon.png" alt="Info" title="View contact information"></button>
-                    <button class="editButton"><img src="./images/editIcon.png" alt="Edit" title="Edit contact"></button>
-                    <button class="removeButton"><img src="./images/deleteContact.png" alt="Remove" title="Remove contact"></button>
-                </div>
-            </li>
-              <li>
-                    <div class="contact">
-                    <img class="contactPhoto" src="./images/contact2.jpg" alt="Photo of the current contact">
-                    <h2>Lindsey Joyner</h2>
-                    <button class="infoButton"><img src="./images/infoIcon.png" alt="Info" title="View contact information"></button>
-                    <button class="editButton"><img src="./images/editIcon.png" alt="Edit" title="Edit contact"></button>
-                    <button class="removeButton"><img src="./images/deleteContact.png" alt="Remove" title="Remove contact"></button>
-                </div>
-            </li>
-              <li>
-                    <div class="contact">
-                    <img class="contactPhoto" src="./images/contact3.png" alt="Photo of the current contact">
-                    <h2>Yusef Grant</h2>
-                    <button class="infoButton"><img src="./images/infoIcon.png" alt="Info" title="View contact information"></button>
-                    <button class="editButton"><img src="./images/editIcon.png" alt="Edit" title="Edit contact"></button>
-                    <button class="removeButton"><img src="./images/deleteContact.png" alt="Remove" title="Remove contact"></button>
-                </div>
-            </li>
-            </ul>
+        <section id="contacts">
+            <ul id="contactList">            
+        </ul>
         </section>
-
         </div>
     </main>
 
-   
-
     <footer>
         <nav>
-            <a href="./contactus.html">Contact Us</a>
             <a href="./aboutus.html">About Us</a>
+            <a href="./contactus.html">Contact Us</a>
         </nav>
       <p>&copy; 2025 Yail Salem & Leon Mavrin All rights reserved.</p>
   </footer>
@@ -72,11 +42,12 @@
     <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
         <h2 class="contactName">Bertie Yates</h2>
-        <p class="contactDetails age">Age: 37</p>
-        <p class="contactDetails phoneNumber">Phone Number: 111111</p>
-        <p class="contactDetails contactAddress">Address: Tel Aviv</p>
+        <p class="contactDetails" class="age">Age: 37</p>
+        <p class="contactDetails" class="phoneNumber">Phone Number: 111111</p>
+        <p class="contactDetails" class="contactAddress">Address: Tel Aviv</p>
     </div>
   </div>
     
+  <script src="./contactsList.js"></script>
 </body>
 </html>
