@@ -1,0 +1,53 @@
+<!--שמות מגישים:
+יאיל סאלם
+ליאון מברין-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="./style.css" rel="stylesheet">
+
+    <title>Phone Book</title>
+
+    <link rel="icon" href="./images/phonebookIcon.png" type="image/png">
+</head>
+<body>
+    <h1>Phone Book</h1>
+
+    <main>
+        <div class="wrapper">
+        <button class="editList"><img src="./images/addContact.png" alt="Add" title="Add contact"></button>
+        <button class="editList" id="deleteAll"><img src="./images/removeIcon.png" alt="Remove All" title="Delete all contacts"></button>
+
+        <section id="contacts">
+            <ul id="contactList">            
+        </ul>
+        </section>
+        </div>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="./aboutus.html">About Us</a>
+            <a href="./contactus.html">Contact Us</a>
+        </nav>
+      <p>&copy; 2025 Yail Salem & Leon Mavrin All rights reserved.</p>
+  </footer>
+
+
+  <!--Contact Info Modal-->
+  <div class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2 class="contactName">Bertie Yates</h2>
+        <p class="contactDetails" class="age">Age: 37</p>
+        <p class="contactDetails" class="phoneNumber">Phone Number: 111111</p>
+        <p class="contactDetails" class="contactAddress">Address: Tel Aviv</p>
+    </div>
+  </div>
+    
+  <script src="./contactsList.js"></script>
+</body>
+</html>
