@@ -5,7 +5,7 @@
 
 /* Code for displaying the info of contact's modal (when clicking on the info button on each contact) as well as deleting and editing certain contacts,
  Uses the same array from the contactsList.js file */
- 
+
 const modalContent = document.querySelector('.modal-content');
 
 // Span to contain relevant contact's information
@@ -68,8 +68,11 @@ contactInfoList.addEventListener('click', e => {
     const removeBtn = e.target.closest('.removeButton');
 
     if (removeBtn) {
+
         e.target.closest('li').remove();
-        contacts.splice(removeBtn.getAttribute('data-id' , 1));
+        contacts.splice(Number(removeBtn.getAttribute('data-id')) , 1);
+
+        buildContactList(contacts);
     }
 
     // Editing a contact's information
@@ -98,7 +101,7 @@ contactInfoList.addEventListener('click', e => {
             e.preventDefault();
 
             // Updating the contact's info in the array to the new info provided by the user
-            let updatedContacts = contacts.map((elem , arrInd) => {
+            let updatedContacts = contacts.map((elem, arrInd) => {
                 if (arrInd === index) {
                     elem.name = editName.value.trim();
                     elem.phoneNum = editPhoneNum.value.trim();
@@ -109,19 +112,10 @@ contactInfoList.addEventListener('click', e => {
                 }
 
                 return elem;
-                
+
             });
-            
+
             closeEditModal();
-
-            console.log(editName.value);
-            
-
-            console.log(updatedContacts);
-            
-
-            // Ressetting the contacts list before updating the contact list
-            document.getElementById('contactList').innerHTML = "";
 
             buildContactList(updatedContacts);
 

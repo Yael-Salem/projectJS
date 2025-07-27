@@ -38,6 +38,10 @@ let contacts =
 const contactList = document.getElementById('contactList');
 
 const buildContactList = (contactsArr) => {
+
+    // Ressetting the contacts list before building the new contact
+    contactList.innerHTML = "";
+
     contactsArr.map((elem, index) => {
         const li = document.createElement('li');
 
@@ -75,7 +79,7 @@ contactList.addEventListener('mouseover', e => {
 contactList.addEventListener('mouseout', e => {
 
     const currentContact = e.target.closest('li');
-   
+
     if (currentContact)
         currentContact.classList.remove('selected');
 });
@@ -147,12 +151,9 @@ document.getElementById('saveBtn').addEventListener('click', e => {
         // Closing the popup and rebuilding the contact list
         closeNewContact();
 
-        // Ressetting the contacts list before adding the new contact
-        contactList.innerHTML = "";
-
         buildContactList(contacts);
     } else {
-        alert('Contact must contain both name and phone number!')
+        alert('Contact must contain both name and phone number!');
     }
 
 });

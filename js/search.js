@@ -4,7 +4,6 @@
 יאיל סאלם*/
 
 // Searching contacts by name
-
 document.getElementById('searchButton').addEventListener('click', e => {
 
     const searchTarget = document.getElementById('search');
@@ -17,12 +16,11 @@ document.getElementById('searchButton').addEventListener('click', e => {
         let result = contacts.filter(elem => {
             if (elem.name.toLowerCase() === searchTarget.value.trim().toLowerCase()) {
                 return true;
-            } else {
-                return false;
             }
-        });
 
-        contactList.innerHTML = "";
+            return false;
+
+        });
 
         buildContactList(result);
     }
