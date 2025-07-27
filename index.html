@@ -20,9 +20,15 @@
 
     <main>
         <div class="wrapper">
-            <button class="editList"><img src="./images/addContact.png" alt="Add" title="Add contact"></button>
-            <button class="editList" id="deleteAll"><img src="./images/removeIcon.png" alt="Remove All"
-                    title="Delete all contacts"></button>
+            <div class="options">
+                <input type="text" id="search" name="search" placeholder="Search List">
+                <button type="submit" id="searchButton">Search</button>
+
+                <button class="editList" id="addContact"><img src="./images/addContact.png" alt="Add"
+                        title="Add contact"></button>
+                <button class="editList" id="deleteAll"><img src="./images/removeIcon.png" alt="Remove All"
+                        title="Delete all contacts"></button>
+            </div>
 
             <section id="contacts">
                 <ul id="contactList">
@@ -43,12 +49,71 @@
     <!--Contact Info Modal-->
     <div class="modal">
         <div class="modal-content">
-            <span id="closeModal" class="close">&times;</span>
+            <span class="close">&times;</span>
+        </div>
+    </div>
+
+    <!-- Modal to add a new contact -->
+    <div class="modal" id="newContact">
+        <div class="modal-content">
+            <h2>New Contact</h2>
+            <form id="newContactForm">
+                <label for="title">Name</label>
+                <input type="text" id="contactName" name="contactName" required>
+
+                <label for="intro">Phone Number:</label>
+                <input type="text" id="phoneNum" name="phoneNum" required>
+
+                <label for="content">E-Mail:</label>
+                <input type="text" id="mail" name="mail" required>
+
+                <label for="content">Address:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="content">Age:</label>
+                <input type="text" id="age" name="age" required>
+
+                <label for="image">Image URL:</label>
+                <input type="url" id="image" name="image">
+
+                <button type="submit" id="saveBtn">Save</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal to edit existing contact -->
+    <div class="modal" id="editContact">
+        <div class="modal-content">
+            <h2>Edit Contact</h2>
+            <form id="editContactForm">
+                <label for="title">Name</label>
+                <input type="text" id="editName" name="editName" required>
+
+                <label for="intro">Phone Number:</label>
+                <input type="text" id="editPhoneNum" name="editPhoneNum" required>
+
+                <label for="content">E-Mail:</label>
+                <input type="text" id="editMail" name="editMail">
+
+                <label for="content">Address:</label>
+                <input type="text" id="editAddress" name="editAddress">
+
+                <label for="content">Age:</label>
+                <input type="text" id="editAge" name="editAge">
+
+                <label for="image">Image URL:</label>
+                <input type="text" id="editImage" name="editImage">
+
+                <button type="submit" id="saveChangesBtn">Save Changes</button>
+                <button type="button" id="backBtn">Cancel</button>
+            </form>
         </div>
     </div>
 
     <script src="./js/contactsList.js"></script>
     <script src="./js/contactInfoModal.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 
 </html>

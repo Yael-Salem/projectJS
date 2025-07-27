@@ -16,6 +16,11 @@
     src: url(../fonts/EduNSWACTCursive-VariableFont_wght.ttf);
 }
 
+/* Changing cursor when hovering over all buttons */
+button:hover{
+    cursor: pointer;
+}
+
 /* #endregion */
 
 /* Header Design Settings */
@@ -70,6 +75,9 @@ ul {
 .contact>button {
     background-color: white;
     border: none;
+    height: 35px;
+    width: auto;
+    margin-top: 5%;
 }
 
 .contact>p {
@@ -86,14 +94,18 @@ ul {
     margin-right: 1%;
 }
 
+/* Changin background color when user hovers on a certain contact */
+.selected{
+    background-color: rgb(216, 221, 224);
+}
+
 /* #endregion */
 
 /* Icons */
 /* #region Icons */
 button {
-    background-color: white;
     border: none;
-
+    padding: 0% 0% 0% 0%;
 }
 
 button :hover {
@@ -106,6 +118,7 @@ button :hover {
 }
 
 .editList {
+    background-color: white;
     margin-left: 90%;
 }
 
@@ -200,6 +213,10 @@ a:hover {
     cursor: pointer;
 }
 
+.close:hover {
+  color: crimson;
+}
+
 .contactName {
     text-align: center;
     font-size: 35px;
@@ -213,6 +230,23 @@ a:hover {
 
 /*#endregion*/
 
+/* Add new contact modal */
+/* #region New Contact */
+form {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* #endregion */
+
 /* Paragraphs */
 /* #region Paragraphs */
 p {
@@ -224,4 +258,17 @@ p {
     padding-bottom: 5%;
 }
 
+/* #endregion */
+
+/* Search */
+/* #region Search */
+#search{
+    margin-top: 2.5%;
+    margin-left: 2%;
+    border: 2px solid black;
+}
+
+#searchButton{
+    background-color: #ccc;
+}
 /* #endregion */
