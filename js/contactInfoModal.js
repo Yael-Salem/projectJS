@@ -33,6 +33,7 @@ function fillPopup(index) {
         `<h2 class="contactName">${contacts[index].name}</h2>
          <p class="contactDetails age">Age: ${contacts[index].age}</p>
          <p class="contactDetails phoneNumber">Phone Number: ${contacts[index].phoneNum}</p>
+         <p class="contactDetails email">Email: ${contacts[index].email}</p>
          <p class="contactDetails contactAddress">Address: ${contacts[index].address}</p>`;
 
     modalContent.append(contactModaInfo);
@@ -47,7 +48,7 @@ const closeEditModal = () => {
 
 const contactModal = document.querySelector('.modal');
 
-const contactInfoList = document.getElementById('contacts');
+const contactInfoList = document.getElementById('contactList');
 
 
 contactInfoList.addEventListener('click', e => {
@@ -68,12 +69,16 @@ contactInfoList.addEventListener('click', e => {
     const removeBtn = e.target.closest('.removeButton');
 
     if (removeBtn) {
+        const index = Number(removeBtn.getAttribute('data-id'));
+        const contactName = contacts[index].name;
 
-        e.target.closest('li').remove();
-        contacts.splice(Number(removeBtn.getAttribute('data-id')) , 1);
-
-        buildContactList(contacts);
+        const confirmed = confirm(`Are you sure you want to delete "${contactName}"?`);
+        if (confirmed) {
+            contacts.splice(index, 1);
+            buildContactList(contacts);
+        }
     }
+
 
     // Editing a contact's information
     const editBtn = e.target.closest('.editButton');

@@ -8,7 +8,7 @@ let contacts =
     [
         {
             name: 'Bertie Yates',
-            phoneNum: '111111',
+            phoneNum: '0581234567',
             email: 'B.yates@gmail.com',
             address: 'Tel Aviv',
             age: '37',
@@ -17,7 +17,7 @@ let contacts =
 
         {
             name: 'Lindsey Joyner',
-            phoneNum: '222222',
+            phoneNum: '0586549243',
             email: 'Linn@hotmail.com',
             address: 'Haifa',
             age: '26',
@@ -26,7 +26,7 @@ let contacts =
 
         {
             name: 'Yusef Grant',
-            phoneNum: '3333333',
+            phoneNum: '0485005000',
             email: 'GrYusef@gmail.com',
             address: 'Nazareth',
             age: '42',
@@ -47,20 +47,17 @@ const buildContactList = (contactsArr) => {
 
         li.innerHTML =
             `<div class="contact">
-            <img src="${elem.image}" class="contactPhoto">
+        <img src="${elem.image}" class="contactPhoto">
+        <div class="contactInfo">
             <h2>${elem.name}</h2>
-            <p>E-Mail: ${elem.email}</p>
             <p>Phone Number: ${elem.phoneNum}</p>
-            <button data-id="${index}" class="infoButton">
-            <img src="./images/infoIcon.png" alt="Info" title="View contact information">
-            </button>
-            <button data-id="${index}" class="editButton">
-            <img src="./images/editIcon.png" alt="Edit" title="Edit contact">
-            </button>
-             <button data-id="${index}" class="removeButton">
-            <img src="./images/deleteContact.png" alt="Remove" title="Remove contact">
-            </button>
-        </div>`
+        </div>
+        <div class="contactButtons">
+            <button data-id="${index}" class="infoButton">Info</button>
+            <button data-id="${index}" class="editButton">Edit</button>
+            <button data-id="${index}" class="removeButton">Delete</button>
+        </div>
+    </div>`;
 
         contactList.append(li);
     });
@@ -88,8 +85,13 @@ contactList.addEventListener('mouseout', e => {
 const delteAllBtn = document.getElementById('deleteAll');
 
 delteAllBtn.addEventListener('click', () => {
-    contactList.remove();
+    const confirmed = confirm("Are you sure you want to delete ALL contacts?");
+    if (confirmed) {
+        contacts = [];
+        buildContactList(contacts);
+    }
 });
+
 
 // Opening the modal to add a new contact
 const newContactBtn = document.getElementById('addContact');
@@ -111,6 +113,55 @@ document.getElementById('cancelBtn').addEventListener('click', () => {
     closeNewContact();
 });
 
+// Function that validate phone number
+function isValidPhoneNumber(phone) {
+    // Remove unnecessary spaces
+    phone = phone.trim();
+
+    // Check that the number is not empty
+    if (phone.length === 0) return false;
+
+    // Check that the length is between 6 and 15.
+    if (phone.length < 6 || phone.length > 15) return false;
+
+    // Check that every character is a digit (0–9)
+    for (let i = 0; i < phone.length; i++) {
+        const char = phone[i];
+        if (char < '0' || char > '9') {
+            return false;
+        }
+    }
+
+    // If all the tests are passed, the number is valid.
+    return true;
+}
+
+// Function that validate email address
+function isValidEmail(email) {
+
+    // Remove unnecessary spaces
+    email = email.trim();
+
+    // must contain @
+    const atIndex = email.indexOf('@');
+    if (atIndex === -1) return false;
+
+    // @ Cannot be at the beginning or the end
+    if (atIndex === 0 || atIndex === email.length - 1) return false;
+
+    // Must contain a dot after the @
+    const dotIndex = email.indexOf('.', atIndex);
+    if (dotIndex === -1) return false;
+
+    // the point cannot be the last one
+    if (dotIndex === email.length - 1) return false;
+
+    // If all tests are passed, the email is valid
+    return true;
+}
+
+
+
 // Saving the new contact and adding them to the array and list displayed to the user
 document.getElementById('saveBtn').addEventListener('click', e => {
     e.preventDefault();
@@ -125,6 +176,18 @@ document.getElementById('saveBtn').addEventListener('click', e => {
 
     // Checking if the user has filled out the contact's name and phone number
     if (name.value && phoneNum.value) {
+
+        // Make sure the phone is valid
+        if (!isValidPhoneNumber(phoneNum.value)) {
+            alert('Phone number must contain only digits, and be 6–15 digits long.');
+            return;
+        }
+
+        if (mail.value && !isValidEmail(mail.value)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
         // Setting a default photo for the contact is the user didn't provide one
         if (!image.value) {
             image.value = './images/defaultPhoto.png';
